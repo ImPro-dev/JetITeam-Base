@@ -1,17 +1,5 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <!--<virtualType name="JetITeam\Base\Model\ColorScheme\Config\Reader" type="Magento\Framework\Config\Reader\Filesystem">-->
-        <!--<arguments>-->
-            <!--<argument name="converter" xsi:type="object">JetITeam\Base\Model\ColorScheme\Config\Converter</argument>-->
-            <!--<argument name="schemaLocator" xsi:type="object">JetITeam\Base\Model\ColorScheme\Config\SchemaLocator</argument>-->
-            <!--<argument name="fileName" xsi:type="string">color_schemes.xml</argument>-->
-        <!--</arguments>-->
-    <!--</virtualType>-->
-    <!--<type name="JetITeam\Base\Helper\ColorScheme">-->
-        <!--<arguments>-->
-            <!--<argument name="reader" xsi:type="object">JetITeam\Base\Model\ColorScheme\Config\Reader</argument>-->
-        <!--</arguments>-->
-    <!--</type>-->
     <type name="JetITeam\Base\Controller\Adminhtml\Settings\Export">
         <arguments>
             <argument name="writer" xsi:type="object">Magento\ImportExport\Model\Export\Adapter\Csv</argument>

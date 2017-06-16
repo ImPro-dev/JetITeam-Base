@@ -112,7 +112,7 @@ class Data extends AbstractHelper
     /**
      * Color scheme config option.
      */
-    const XML_PATH_COLOR_SCHEME = 'theme_options/general/color_scheme';
+//    const XML_PATH_COLOR_SCHEME = 'theme_options/color_settings/color_scheme';
 
     /**
      * Primary color config option.
@@ -511,25 +511,20 @@ class Data extends AbstractHelper
      */
     protected static $supportedViewTypes = ['grid', 'list'];
 
-    /**
-     * @var ColorScheme
-     */
-    protected $_colorScheme;
-
-    /**
-     * Data constructor.
-     *
-     * @param ColorScheme $colorScheme
-     * @param Context $context
-     */
-    public function __construct(
-        ColorScheme $colorScheme,
-        Context $context
-    )
-    {
-        $this->_colorScheme = $colorScheme;
-        parent::__construct($context);
-    }
+//    /**
+//     * Data constructor.
+//     *
+//     * @param ColorScheme $colorScheme
+//     * @param Context $context
+//     */
+//    public function __construct(
+//        ColorScheme $colorScheme,
+//        Context $context
+//    )
+//    {
+//        $this->_colorScheme = $colorScheme;
+//        parent::__construct($context);
+//    }
 
     /**
      * Get Logo Type.
@@ -779,404 +774,381 @@ class Data extends AbstractHelper
      *
      * @return mixed
      */
-    public function getColorScheme($website = null)
-    {
-        return $this->scopeConfig->getValue(
-            self::XML_PATH_COLOR_SCHEME,
-            ScopeInterface::SCOPE_WEBSITE,
-            $website
-        );
-    }
+//    public function getColorScheme($website = null)
+//    {
+//        return $this->scopeConfig->getValue(
+//            self::XML_PATH_COLOR_SCHEME,
+//            ScopeInterface::SCOPE_WEBSITE,
+//            $website
+//        );
+//    }
 
     /**
      * Get primary color.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return mixed
      */
-    public function getPrimaryColor($store = null, $scheme = null)
+    public function getPrimaryColor($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_PRIMARY_COLOR, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_PRIMARY_COLOR, $store);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_PRIMARY_COLOR,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get secondary color.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return mixed
      */
-    public function getSecondaryColor($store = null, $scheme = null)
+    public function getSecondaryColor($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_SECONDARY_COLOR, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_SECONDARY_COLOR, $store);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_SECONDARY_COLOR,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get body background color.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return mixed
      */
-    public function getBodyBackgroundColor($store = null, $scheme = null)
+    public function getBodyBackgroundColor($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_BODY_BACKGROUND_COLOR, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_BODY_BACKGROUND_COLOR, $store);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_BODY_BACKGROUND_COLOR,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Check is enable body background image.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return bool
      */
-    public function isBodyBackgroundImage($store = null, $scheme = null)
+    public function isBodyBackgroundImage($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_BODY_BACKGROUND_IMAGE_ACTIVE, $scheme);
-
-        return $this->scopeConfig->isSetFlag($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: (bool)$this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_BODY_BACKGROUND_IMAGE_ACTIVE);
+        return $this->scopeConfig->isSetFlag(
+            self::XML_PATH_BODY_BACKGROUND_IMAGE_ACTIVE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get body background image.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getBodyBackgroundImage($store = null, $scheme = null)
+    public function getBodyBackgroundImage($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_BODY_BACKGROUND_IMAGE, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_BODY_BACKGROUND_IMAGE);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_BODY_BACKGROUND_IMAGE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get body background image position.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getBodyBackgroundImagePosition($store = null, $scheme = null)
+    public function getBodyBackgroundImagePosition($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_BODY_BACKGROUND_IMAGE_POSITION, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_BODY_BACKGROUND_IMAGE_POSITION);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_BODY_BACKGROUND_IMAGE_POSITION,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get body background image repeat.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getBodyBackgroundImageRepeat($store = null, $scheme = null)
+    public function getBodyBackgroundImageRepeat($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_BODY_BACKGROUND_IMAGE_REPEAT, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_BODY_BACKGROUND_IMAGE_REPEAT);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_BODY_BACKGROUND_IMAGE_REPEAT,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get body background image size.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getBodyBackgroundImageSize($store = null, $scheme = null)
+    public function getBodyBackgroundImageSize($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_BODY_BACKGROUND_IMAGE_SIZE, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_BODY_BACKGROUND_IMAGE_SIZE);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_BODY_BACKGROUND_IMAGE_SIZE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get body background image attachment.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getBodyBackgroundImageAttachment($store = null, $scheme = null)
+    public function getBodyBackgroundImageAttachment($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_BODY_BACKGROUND_IMAGE_ATTACHMENT, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_BODY_BACKGROUND_IMAGE_ATTACHMENT);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_BODY_BACKGROUND_IMAGE_ATTACHMENT,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get header background color.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getHeaderBackgroundColor($store = null, $scheme = null)
+    public function getHeaderBackgroundColor($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_HEADER_BACKGROUND_COLOR, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_HEADER_BACKGROUND_COLOR);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_HEADER_BACKGROUND_COLOR,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Check is enable header background image.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return bool
      */
-    public function isHeaderBackgroundImage($store = null, $scheme = null)
+    public function isHeaderBackgroundImage($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_HEADER_BACKGROUND_IMAGE_ACTIVE, $scheme);
-
-        return $this->scopeConfig->isSetFlag($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: (bool)$this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_HEADER_BACKGROUND_IMAGE_ACTIVE);
+        return $this->scopeConfig->isSetFlag(
+            self::XML_PATH_HEADER_BACKGROUND_IMAGE_ACTIVE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get header background image.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getHeaderBackgroundImage($store = null, $scheme = null)
+    public function getHeaderBackgroundImage($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_HEADER_BACKGROUND_IMAGE, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_HEADER_BACKGROUND_IMAGE);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_HEADER_BACKGROUND_IMAGE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get header background image position.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getHeaderBackgroundImagePosition($store = null, $scheme = null)
+    public function getHeaderBackgroundImagePosition($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_HEADER_BACKGROUND_IMAGE_POSITION, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_HEADER_BACKGROUND_IMAGE_POSITION);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_HEADER_BACKGROUND_IMAGE_POSITION,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get header background image repeat.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getHeaderBackgroundImageRepeat($store = null, $scheme = null)
+    public function getHeaderBackgroundImageRepeat($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_HEADER_BACKGROUND_IMAGE_REPEAT, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_HEADER_BACKGROUND_IMAGE_REPEAT);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_HEADER_BACKGROUND_IMAGE_REPEAT,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get header background image size.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getHeaderBackgroundImageSize($store = null, $scheme = null)
+    public function getHeaderBackgroundImageSize($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_HEADER_BACKGROUND_IMAGE_SIZE, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_HEADER_BACKGROUND_IMAGE_SIZE);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_HEADER_BACKGROUND_IMAGE_SIZE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get header background image attachment.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getHeaderBackgroundImageAttachment($store = null, $scheme = null)
+    public function getHeaderBackgroundImageAttachment($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_HEADER_BACKGROUND_IMAGE_ATTACHMENT, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_HEADER_BACKGROUND_IMAGE_ATTACHMENT);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_HEADER_BACKGROUND_IMAGE_ATTACHMENT,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get footer background color.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getFooterBackgroundColor($store = null, $scheme = null)
+    public function getFooterBackgroundColor($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_FOOTER_BACKGROUND_COLOR, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_FOOTER_BACKGROUND_COLOR);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_FOOTER_BACKGROUND_COLOR,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Check is enable footer background image.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return bool
      */
-    public function isFooterBackgroundImage($store = null, $scheme = null)
+    public function isFooterBackgroundImage($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_FOOTER_BACKGROUND_IMAGE_ACTIVE, $scheme);
-
-        return $this->scopeConfig->isSetFlag($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: (bool)$this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_FOOTER_BACKGROUND_IMAGE_ACTIVE);
+        return $this->scopeConfig->isSetFlag(
+            self::XML_PATH_FOOTER_BACKGROUND_IMAGE_ACTIVE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get footer background image.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getFooterBackgroundImage($store = null, $scheme = null)
+    public function getFooterBackgroundImage($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_FOOTER_BACKGROUND_IMAGE, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_FOOTER_BACKGROUND_IMAGE);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_FOOTER_BACKGROUND_IMAGE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get footer background image position.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getFooterBackgroundImagePosition($store = null, $scheme = null)
+    public function getFooterBackgroundImagePosition($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_FOOTER_BACKGROUND_IMAGE_POSITION, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_FOOTER_BACKGROUND_IMAGE_POSITION);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_FOOTER_BACKGROUND_IMAGE_POSITION,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get footer background image repeat.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getFooterBackgroundImageRepeat($store = null, $scheme = null)
+    public function getFooterBackgroundImageRepeat($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_FOOTER_BACKGROUND_IMAGE_REPEAT, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_FOOTER_BACKGROUND_IMAGE_REPEAT);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_FOOTER_BACKGROUND_IMAGE_REPEAT,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get footer background image size.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getFooterBackgroundImageSize($store = null, $scheme = null)
+    public function getFooterBackgroundImageSize($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_FOOTER_BACKGROUND_IMAGE_SIZE, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_FOOTER_BACKGROUND_IMAGE_SIZE);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_FOOTER_BACKGROUND_IMAGE_SIZE,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get footer background image attachment.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getFooterBackgroundImageAttachment($store = null, $scheme = null)
+    public function getFooterBackgroundImageAttachment($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_FOOTER_BACKGROUND_IMAGE_ATTACHMENT, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_FOOTER_BACKGROUND_IMAGE_ATTACHMENT);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_FOOTER_BACKGROUND_IMAGE_ATTACHMENT,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
@@ -1235,51 +1207,48 @@ class Data extends AbstractHelper
      * Get primary font color.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getPrimaryFontColor($store = null, $scheme = null)
+    public function getPrimaryFontColor($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_PRIMARY_FONT_COLOR, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_PRIMARY_FONT_COLOR);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_PRIMARY_FONT_COLOR,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get primary link color.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getPrimaryLinkColor($store = null, $scheme = null)
+    public function getPrimaryLinkColor($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_PRIMARY_LINK_COLOR, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_PRIMARY_LINK_COLOR);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_PRIMARY_LINK_COLOR,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**
      * Get primary title color.
      *
      * @param string|null $store
-     * @param string|null $scheme
      *
      * @return string
      */
-    public function getPrimaryTitleColor($store = null, $scheme = null)
+    public function getPrimaryTitleColor($store = null)
     {
-        $scheme = null === $scheme ? $this->getCurrentColorScheme($store) : $scheme;
-        $path = $this->prefixPathWithColorScheme(self::XML_PATH_PRIMARY_TITLE_COLOR, $scheme);
-
-        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $store)
-            ?: $this->_colorScheme->getDefaultValue($scheme, self::XML_PATH_PRIMARY_TITLE_COLOR);
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_PRIMARY_TITLE_COLOR,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        );
     }
 
     /**

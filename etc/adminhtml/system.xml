@@ -143,38 +143,28 @@
             </group>
             <group id="color_settings" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Theme color settings</label>
-                <field id="color_scheme_status" translate="label comment" type="select" sortOrder="10" showInDefault="0" showInWebsite="1" showInStore="1">
+                <field id="color_scheme_status" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Color scheme status</label>
                     <comment>Enable/Disable color scheme.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
-                <!--<field id="color_scheme" translate="label comment" type="select" sortOrder="20" showInDefault="0" showInWebsite="1" showInStore="1">-->
-                    <!--<label>Color scheme</label>-->
-                    <!--<comment>Choose color scheme for site.</comment>-->
-                    <!--<source_model>JetITeam\Base\Model\Config\Source\ColorScheme</source_model>-->
-                    <!--<frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorScheme</frontend_model>-->
-                    <!--<config_path>theme_options/general/color_scheme</config_path>-->
-                    <!--<depends>-->
-                        <!--<field id="color_scheme_status">1</field>-->
-                    <!--</depends>-->
-                <!--</field>-->
                 <group id="header" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Header</label>
                     <depends>
                         <field id="color_scheme_status">1</field>
                     </depends>
-                    <field id="header_background_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="header_background_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Header background color</label>
                         <comment>Header background color in hex format.</comment>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorPicker</frontend_model>
                     </field>
-                    <field id="header_background_image_active" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="header_background_image_active" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Header background image</label>
                         <comment>Enable/Disable header background image</comment>
                         <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="header_background_image" translate="label comment" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="header_background_image" translate="label comment" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background image</label>
                         <comment>Header background image file. Allowed file types: ICO, PNG, GIF, JPG, JPEG, APNG, SVG. Not all browsers support all these formats!</comment>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
@@ -185,7 +175,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="header_background_image_position" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="header_background_image_position" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background position</label>
                         <comment>Header background image position</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Position</source_model>
@@ -194,7 +184,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="header_background_image_repeat" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="header_background_image_repeat" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background repeat</label>
                         <comment>Header background image repeat</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Repeat</source_model>
@@ -203,7 +193,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="header_background_image_size" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="header_background_image_size" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background size</label>
                         <comment>Header background image size</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Size</source_model>
@@ -212,7 +202,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="header_background_image_attachment" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="header_background_image_attachment" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background attachment</label>
                         <comment>Header background image attachment</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Attachment</source_model>
@@ -227,22 +217,22 @@
                     <depends>
                         <field id="color_scheme_status">1</field>
                     </depends>
-                    <field id="primary_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="primary_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Primary color</label>
                         <comment>Primary color in hex format.</comment>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorPicker</frontend_model>
                     </field>
-                    <field id="secondary_color" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="secondary_color" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Secondary color</label>
                         <comment>Secondary color in hex format.</comment>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorPicker</frontend_model>
                     </field>
-                    <field id="body_background_color" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="body_background_color" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Body background color</label>
                         <comment>Body background color in hex format.</comment>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorPicker</frontend_model>
                     </field>
-                    <field id="body_background_image_active" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="body_background_image_active" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Body background image</label>
                         <comment>Enable/Disable body background image</comment>
                         <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
@@ -251,7 +241,7 @@
                             <field id="color_scheme_status">1</field>
                         </depends>
                     </field>
-                    <field id="body_background_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="body_background_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background image</label>
                         <comment>Body background image file. Allowed file types: ICO, PNG, GIF, JPG, JPEG, APNG, SVG. Not all browsers support all these formats!</comment>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
@@ -262,7 +252,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="body_background_image_position" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="body_background_image_position" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background position</label>
                         <comment>Body background image position</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Position</source_model>
@@ -271,7 +261,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="body_background_image_repeat" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="body_background_image_repeat" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background repeat</label>
                         <comment>Body background image repeat</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Repeat</source_model>
@@ -280,7 +270,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="body_background_image_size" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="body_background_image_size" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background size</label>
                         <comment>Body background image size</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Size</source_model>
@@ -289,7 +279,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="body_background_image_attachment" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="body_background_image_attachment" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background attachment</label>
                         <comment>Body background image attachment</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Attachment</source_model>
@@ -298,17 +288,17 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="primary_font_color" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="primary_font_color" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Primary font color</label>
                         <comment>Set primary font color in hex format.</comment>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorPicker</frontend_model>
                     </field>
-                    <field id="primary_link_color" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="primary_link_color" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Primary link color</label>
                         <comment>Set primary link color in hex format.</comment>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorPicker</frontend_model>
                     </field>
-                    <field id="primary_title_color" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="primary_title_color" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Primary title color</label>
                         <comment>Set primary title color in hex format.</comment>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorPicker</frontend_model>
@@ -319,18 +309,18 @@
                     <depends>
                         <field id="color_scheme_status">1</field>
                     </depends>
-                    <field id="footer_background_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="footer_background_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Footer background color</label>
                         <comment>Footer background color in hex format.</comment>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorPicker</frontend_model>
                     </field>
-                    <field id="footer_background_image_active" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="footer_background_image_active" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Footer background image</label>
                         <comment>Enable/Disable footer background image</comment>
                         <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="footer_background_image" translate="label comment" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="footer_background_image" translate="label comment" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background image</label>
                         <comment>Footer background image file. Allowed file types: ICO, PNG, GIF, JPG, JPEG, APNG, SVG. Not all browsers support all these formats!</comment>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
@@ -341,7 +331,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="footer_background_image_position" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="footer_background_image_position" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background position</label>
                         <comment>Footer background image position</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Position</source_model>
@@ -350,7 +340,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="footer_background_image_repeat" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="footer_background_image_repeat" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background repeat</label>
                         <comment>Footer background image repeat</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Repeat</source_model>
@@ -359,7 +349,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="footer_background_image_size" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="footer_background_image_size" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background size</label>
                         <comment>Footer background image size</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Size</source_model>
@@ -368,7 +358,7 @@
                         </depends>
                         <frontend_model>JetITeam\Base\Block\Adminhtml\System\Config\Field\ColorSettings</frontend_model>
                     </field>
-                    <field id="footer_background_image_attachment" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="footer_background_image_attachment" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Background attachment</label>
                         <comment>Footer background image attachment</comment>
                         <source_model>JetITeam\Base\Model\Config\Source\Attachment</source_model>

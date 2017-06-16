@@ -15,13 +15,13 @@ class ValuePlugin
     /**
      * @inheritdoc
      */
-    public function beforeSave(Value $subject)
-    {
-        if ($this->_isColorSettingsValue($subject)) {
-            $path = $this->_getNewPath($subject);
-            $subject->setPath($path);
-        }
-    }
+//    public function beforeSave(Value $subject)
+//    {
+//        if ($this->_isColorSettingsValue($subject)) {
+//            $path = $this->_getNewPath($subject);
+//            $subject->setPath($path);
+//        }
+//    }
 
     /**
      * Check is color settings path.
@@ -33,8 +33,7 @@ class ValuePlugin
     protected function _isColorSettingsValue(Value $value)
     {
         $exceptions = [
-            ThemeOptionsHelper::XML_PATH_COLOR_SCHEME_STATUS,
-            ThemeOptionsHelper::XML_PATH_COLOR_SCHEME
+            ThemeOptionsHelper::XML_PATH_COLOR_SCHEME_STATUS
         ];
         if (in_array($value->getPath(), $exceptions, true)) {
             return false;
