@@ -1,11 +1,11 @@
 <?php /**   */ ?>
 <?php
 $optionsHelper = $this->helper('JetITeam\Base\Helper\Data');
-var_dump($optionsHelper->getHeaderBackgroundColor());
+
 ?>
 
 <?php if($optionsHelper->getLogoType() == 'text'): ?>
-    /** Logo vv**/
+    /** Logo **/
     <?php $sloganPosition = $optionsHelper->getSloganPosition(); ?>
     <?php $direction = 'row' ?>
     <?php if($sloganPosition == 'top'): $direction = 'column-reverse';  ?>
