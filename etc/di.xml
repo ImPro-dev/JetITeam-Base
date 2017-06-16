@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--<virtualType name="JetITeam\Base\Model\ColorScheme\Config\Reader" type="Magento\Framework\Config\Reader\Filesystem">-->
+        <!--<arguments>-->
+            <!--<argument name="converter" xsi:type="object">JetITeam\Base\Model\ColorScheme\Config\Converter</argument>-->
+            <!--<argument name="schemaLocator" xsi:type="object">JetITeam\Base\Model\ColorScheme\Config\SchemaLocator</argument>-->
+            <!--<argument name="fileName" xsi:type="string">color_schemes.xml</argument>-->
+        <!--</arguments>-->
+    <!--</virtualType>-->
+    <!--<type name="JetITeam\Base\Helper\ColorScheme">-->
+        <!--<arguments>-->
+            <!--<argument name="reader" xsi:type="object">JetITeam\Base\Model\ColorScheme\Config\Reader</argument>-->
+        <!--</arguments>-->
+    <!--</type>-->
+    <type name="JetITeam\Base\Controller\Adminhtml\Settings\Export">
+        <arguments>
+            <argument name="writer" xsi:type="object">Magento\ImportExport\Model\Export\Adapter\Csv</argument>
+        </arguments>
+    </type>
+    <type name="JetITeam\Base\Block\Adminhtml\System\Edit\Plugin">
+        <arguments>
+            <argument name="sections" xsi:type="array">
+                <item name="0" xsi:type="string">theme_options</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Config\Block\System\Config\Edit">
+        <plugin name="addResetButton" type="JetITeam\Base\Block\Adminhtml\System\Edit\Plugin" sortOrder="100" />
+    </type>
+    <type name="Magento\Theme\Block\Html\Header\Logo">
+        <plugin name="logoSettings" type="JetITeam\Base\Plugin\Theme\Block\Html\Header\LogoPlugin" sortOrder="300" />
+    </type>
+    <type name="Magento\Reports\Block\Product\Widget\Compared">
+        <plugin name="compared" type="JetITeam\Base\Plugin\Reports\Block\Product\Widget\ComparedPlugin" sortOrder="800" />
+    </type>
+    <type name="Magento\Reports\Block\Product\Widget\Viewed">
+        <plugin name="compared" type="JetITeam\Base\Plugin\Reports\Block\Product\Widget\ViewedPlugin" sortOrder="900" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\AbstractProduct">
+        <plugin name="show_swatches" type="JetITeam\Base\Plugin\Catalog\Block\Product\AbstractProductPlugin" sortOrder="1000" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare">
+        <plugin name="show_compare" type="JetITeam\Base\Plugin\Catalog\Block\Product\ProductList\Item\AddTo\ComparePlugin" sortOrder="1100" />
+    </type>
+    <type name="Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist">
+        <plugin name="show_wishlist" type="JetITeam\Base\Plugin\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\WishlistPlugin" sortOrder="1200" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="show_product_review" type="JetITeam\Base\Plugin\Catalog\Block\Product\ViewPlugin" sortOrder="-1" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="show_product_review" type="JetITeam\Base\Plugin\Catalog\Block\Product\ListProductPlugin" sortOrder="-1" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\AddTo\Compare">
+        <plugin name="show_product_compare" type="JetITeam\Base\Plugin\Catalog\Block\Product\View\AddTo\ComparePlugin"  sortOrder="1400" />
+    </type>
+    <type name="Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist">
+        <plugin name="show_product_wishlist" type="JetITeam\Base\Plugin\Wishlist\Block\Catalog\Product\View\AddTo\WishlistPlugin" sortOrder="1500" />
+    </type>
+    <!--<type name="Magento\Config\Model\Config\Loader">-->
+        <!--<plugin name="loader" type="JetITeam\Base\Plugin\Config\Model\Config\LoaderPlugin" />-->
+    <!--</type>-->
+    <type name="Magento\Catalog\Block\Product\ProductList\Upsell">
+        <plugin name="upsellPlugin" type="JetITeam\Base\Plugin\Catalog\Block\Product\ProductList\UpsellPlugin" sortOrder="-1" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\ProductList\Related">
+        <plugin name="relatedPlugin" type="JetITeam\Base\Plugin\Catalog\Block\Product\ProductList\RelatedPlugin" sortOrder="-1" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\Description">
+        <plugin name="tabsPlugin" type="JetITeam\Base\Plugin\Catalog\Block\Product\View\DescriptionPlugin" sortOrder="-1" />
+    </type>
+    <type name="Magento\Framework\App\Config\Value">
+        <plugin name="add_color_settings_path_prefix" type="JetITeam\Base\Plugin\App\Config\ValuePlugin" />
+    </type>
+    <!--<preference for="Magento\Framework\Config\View" type="JetITeam\Base\Block\Config\View" />-->
+    <type name="Magento\Framework\Config\View">
+        <plugin name="image_dimensions" type="JetITeam\Base\Plugin\Block\Config\ViewPlugin" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\ImageBlockBuilder">
+        <plugin name="catalog_image_resize" type="JetITeam\Base\Plugin\Catalog\Block\Product\ImageBlockBuilderPlugin" sortOrder="1600" />
+    </type>
+</config>
